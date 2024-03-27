@@ -14,6 +14,10 @@ import Testimonial from './Components/Testimonial/Testimonial.jsx';
 import OurTeam from './Components/OurTeam/OurTeam.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 import Root from './Components/Root/Root.jsx';
+import BookDetails from './Components/BookDetails/BookDetails.jsx';
+import SignUp from './Components/SignUp/SignUp.jsx';
+import SignIn from './Components/SingIn/SignIn.jsx';
+// import Books from './Components/Books/Books.jsx';
 
 
 const router = createBrowserRouter([
@@ -25,10 +29,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        
       },
+      {
+        path: '/BookDetails/:id',
+        element: <BookDetails></BookDetails>,
+        // loader: ({params}) => fetch(`/book/${params.book.id}`),
+        loader: ('/Books.json')
 
-      ,
+      },
       {
         path: '/listed',
         element: <ListedBooks></ListedBooks>,
@@ -44,7 +54,16 @@ const router = createBrowserRouter([
       {
         path: '/OurTeam',
         element: <OurTeam></OurTeam>
+      }, 
+      {
+        path: '/signup',
+        element: <SignUp></SignUp>
+      }, 
+      {
+        path: '/signIn',
+        element: <SignIn></SignIn>
       }
+
     ]
   },
 ]);

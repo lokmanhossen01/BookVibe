@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
 
@@ -7,7 +7,7 @@ const NavBar = () => {
         <li><NavLink to="/listed" className={({isActive})  => isActive ? 'text-primary font-bold rounded-lg border border-green-500 p-4' : 'font-bold'}>Listed Books</NavLink></li>
         <li><NavLink to="/pagestoread" className={({isActive}) => isActive ? 'text-primary font-bold rounded-lg border border-green-500 p-4' : 'font-bold'}>Pages to Read</NavLink></li>
         <li><NavLink to="/testimonial" className={({isActive}) => isActive ? 'text-primary font-bold rounded-lg border border-green-500 p-4' : 'font-bold'}>Testimonial</NavLink></li>
-        <li><NavLink to="/OurTeam" className={({isActive})  => isActive ? 'text-primary font-bold rounded-lg border border-green-500 p-4' : 'font-bold'}>Our Client</NavLink></li>
+        <li><NavLink to="/OurTeam" className={({isActive})  => isActive ? 'text-primary font-bold rounded-lg border border-green-500 p-4' : 'font-bold'}>Pricing</NavLink></li>
     </>
 
     return(
@@ -32,8 +32,8 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-6">
-                <a className="btn inline-flex p-4 justify-center items-center gap-4 rounded-lg bg-green-500">Sign In</a>
-                <a className="btn inline-flex p-4 justify-center items-center gap-4 rounded-lg bg-blue-400">Sign Up</a>
+                <Link  to='/signIn'  className="btn inline-flex p-4 justify-center items-center gap-4 rounded-lg bg-green-500">Sign In</Link>
+                <Link to='/signUp' className="btn inline-flex p-4 justify-center items-center gap-4 rounded-lg bg-blue-400">Sign Up</Link>
             </div>
             </div>
         </div>
