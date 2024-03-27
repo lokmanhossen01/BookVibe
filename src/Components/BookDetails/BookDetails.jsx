@@ -1,6 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { saveBookDetails } from "../Utility/localstorage";
 
 const BookDetails = () => {
 
@@ -15,10 +16,12 @@ const BookDetails = () => {
 
     const handleReadBtn = () => {
         // console.log('Hello')
+        saveBookDetails(bookIdInt);
         toast('You have applied successfully')
     }
     const handleWishlistBtn = () => {
         // console.log('Hello')
+        saveBookDetails(bookIdInt);
         toast('You have applied successfully')
     }
 

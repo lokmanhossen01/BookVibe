@@ -1,7 +1,13 @@
-const PagesToRead = () => {
+const PagesToRead = ({data}) => {
     return(
         <div>
-            <h3 className="text-6xl">Kire mamur beda ekhono page to read hoy nai?</h3>
+            <div className="chart">
+                {data.map((book, index) => (
+                    <div key={index} className="bar" style={{ height: `${book.totalPages}px` }}>
+                    <span className="bar-text">{`${book.name} (${book.totalPages} pages)`}</span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
