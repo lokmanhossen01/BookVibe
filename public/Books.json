@@ -77,7 +77,7 @@
       "publisher": "George Allen & Unwin",
       "yearOfPublishing": 1937
     }, 
-    [
+    
         {
           "bookId": 7,
           "bookName": "The Hunger Games",
@@ -95,7 +95,7 @@
           "bookId": 8,
           "bookName": "The Da Vinci Code",
           "author": "Dan Brown",
-          "image": "https://i.ibb.co/X70zjR4/Book8.png",
+          "image": "https://i.ibb.co/NY3PDLR/Book6.png",
           "review": "A fast-paced thriller that combines art, history, and mystery.",
           "totalPages": 454,
           "rating": 4.3,
@@ -117,6 +117,6 @@
           "publisher": "Bloomsbury Publishing",
           "yearOfPublishing": 1997
         }
-      ]      
+       
   ]
   
