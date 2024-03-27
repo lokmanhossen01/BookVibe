@@ -1,42 +1,70 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// import { useLoaderData } from "react-router-dom";
+const BookDetails = () => {
 
-const BookDetails = ({ books }) => {
+    const books = useLoaderData();
+    const {bookId} = useParams();
+    const bookIdInt = parseInt(bookId);
 
+    const book = books.find(book => book.bookId === bookIdInt);
 
-    const { bookId } = useParams();
-    const book = books.find(book => book.bookId === parseInt(bookId));
-  
-    if (!book) {
-      return <div>Book not found</div>;
+    // console.log(books, bookId);
+    // console.log(book);
+
+    const handleReadBtn = () => {
+        // console.log('Hello')
+        toast('You have applied successfully')
     }
-  
-    const { bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = book;
+    const handleWishlistBtn = () => {
+        // console.log('Hello')
+        toast('You have applied successfully')
+    }
+
 
     return(
-        <div className="book-details">
-        <img src={book.image} alt={bookName} />
         <div>
-          <h2>{bookName}</h2>
-          <p>By: {author}</p>
-          <hr />
-          <p>{category}</p>
-          <hr />
-          <p>Review: {review}</p>
-          <p>Tags: {tags.join(', ')}</p>
-          <p>Number of Pages: {totalPages}</p>
-          <p>Publisher: {publisher}</p>
-          <p>Year of Publishing: {yearOfPublishing}</p>
-          <p>Rating: {rating}</p>
-         <div className="flex gap-6">
-            <button>Read</button>
-            <button>Wishlist</button>
-         </div>
-        </div>
-      </div>
-    );
-};
+            <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row">
+                <img src={book.image} className="max-w-sm rounded-lg shadow-2xl" />
+                <div>
+                <h1 className="text-5xl font-bold">{book.bookName}</h1>
+                <p className="py-6">By: {book.author}</p>
 
+                <hr />
+
+                <p>{book.category}</p>
+                <hr />
+                <div>
+                    <p>Review: {book.review}</p>
+                </div>
+
+                <div>
+                   Tag 
+                   {book.tags}
+                </div>
+                <hr />
+
+                <div>
+                    <p>Number of Pages: {book.totalPages}</p>
+
+                    <p>Publisher: {book.publisher}</p>
+                    <p>Year of Publishing: {book.yearOfPublishing}</p>
+                    <p>Rating: {book.rating}</p>
+                </div>
+
+                <div>
+                    <button onClick={handleReadBtn} className="btn btn-primary mr-4">
+                        Read
+                    </button>
+                    <button onClick={handleWishlistBtn} className="btn btn-primary">Wishlist</button>
+                </div>
+                </div>
+                <ToastContainer />
+            </div>
+            </div>
+        </div>
+    )
+}
 export default BookDetails;

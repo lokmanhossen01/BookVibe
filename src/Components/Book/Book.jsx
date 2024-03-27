@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 const Book = ({ book }) => {
     return(
+        <Link to={`book/${book.bookId}`}>
         <div  className="book-card">
-            <Link to={`/book/${book.bookId}`}>
+            
                 <div className="card  bg-base-100 shadow-xl h-[1100px]">
                     <div className="rounded-lg bg-gray-200 p-6 m-6">
                     <img src={book.image} alt={book.bookName} />
@@ -31,8 +32,9 @@ const Book = ({ book }) => {
                         </div>
                     </div>
                 </div>
-            </Link>
+            
         </div>
+        </Link>
     );
 };
 
