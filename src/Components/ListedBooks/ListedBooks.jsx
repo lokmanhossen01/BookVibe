@@ -54,18 +54,19 @@ const ListedBooks = () => {
         if(filter === 'rating') {
             const shortByRating = readBook.reverse((a, b) => b.rating - a.rating)
             setShowData([...shortByRating])
-            console.log(showData)
+            // console.log(showData)
            
         }
-        else if(filter === 'page-number') {
+        else if(filter === 'totalPages') {
             const shortByPageNumber = readBook.reverse((a, b) => b.totalPages - a.totalPages)
             setShowData([...shortByPageNumber])
             console.log(showData)
            
         }
         else if (filter === 'publisher') {
-            const shortByPublisher = readBook.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
+            const shortByPublisher = readBook.reverse((a, b) => b.yearOfPublishing - a.yearOfPublishing)
             setShowData([...shortByPublisher])
+
 
             console.log(showData)
         
@@ -86,7 +87,7 @@ const ListedBooks = () => {
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow  rounded-box w-52  
                     text-center font-work font-normal text-opacity-80 text-sm leading-28 rounded-8 bg-opacity-5 bg-black">
                         <li onClick={() => handleFilter('rating')}><Link>Rating</Link></li>
-                        <li onClick={() => handleFilter('page-number')}><Link>Number of pages</Link></li>
+                        <li onClick={() => handleFilter('totalPages')}><Link>Number of pages</Link></li>
                         <li onClick={() => handleFilter('publisher')}><Link>Publisher year</Link></li>
                     </ul>
                 </div>

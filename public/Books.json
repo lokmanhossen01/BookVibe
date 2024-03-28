@@ -1,7 +1,7 @@
 [
     {
       "bookId": 1,
-      "bookName": "The Great Gatsby",
+      "bookName": "Gatsby",
       "author": "F. Scott Fitzgerald",
       "image": "https://i.ibb.co/5hky8q5/Book1.png",
       "review": "A timeless classic that vividly captures the Jazz Age and the American Dream.",
@@ -40,7 +40,7 @@
     },
     {
       "bookId": 4,
-      "bookName": "The Catcher in the Rye",
+      "bookName": "The Catcher ",
       "author": "J.D. Salinger",
       "image": "https://i.ibb.co/C5nz211/Book4.png",
       "review": "A compelling portrayal of teenage angst and rebellion in post-war America.",
@@ -80,7 +80,7 @@
     
         {
           "bookId": 7,
-          "bookName": "The Hunger Games",
+          "bookName": "Hunger Games",
           "author": "Suzanne Collins",
           "image": "https://i.ibb.co/y01xxYf/Book7.png",
           "review": "A gripping dystopian novel that explores themes of survival and rebellion.",
@@ -93,7 +93,7 @@
         },
         {
           "bookId": 8,
-          "bookName": "The Da Vinci Code",
+          "bookName": " Vinci Code",
           "author": "Dan Brown",
           "image": "https://i.ibb.co/NY3PDLR/Book6.png",
           "review": "A fast-paced thriller that combines art, history, and mystery.",
@@ -106,7 +106,7 @@
         },
         {
           "bookId": 9,
-          "bookName": "Harry Potter and the Philosopher's Stone",
+          "bookName": "Harry Potter",
           "author": "J.K. Rowling",
           "image": "https://i.ibb.co/rHJqPjx/Book9.png",
           "review": "A magical journey into a world of wizards and wonder.",

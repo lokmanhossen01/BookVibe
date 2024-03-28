@@ -63,18 +63,20 @@ const BookDetails = () => {
         <div>
             <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
-                <img src={book.image} className="max-w-sm rounded-lg shadow-2xl" />
                 <div>
-                <h1 className="text-5xl font-bold">{book.bookName}</h1>
-                <p className="py-6">By: {book.author}</p>
-
-                <hr />
-
-                <p>{book.category}</p>
-                <hr />
-                <div>
-                    <p>Review: {book.review}</p>
+                    <img src={book.image} className="max-w-sm p-12 m-6 rounded-lg shadow-2xl" />
                 </div>
+                <div>
+                <h1 className="text-5xl font-bold text-opacity-80 font-work-sans">{book.bookName}</h1>
+                <p className="py-6 text-opacity-80 font-work-sans font-medium text-base">By: {book.author}</p>
+
+                <hr />
+
+                <p className="text-opacity-80 p-6 text-[#131313CC] font-work-sans font-medium text-base">{book.category}</p>
+                <hr />
+                <div>
+                    <p className="text-4xl">Review: {book.review}</p>
+                </div> <hr />
 
                 <div>
                    Tag 
