@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink', 'yellow' , 'purple' , 'green'];
 
@@ -27,9 +27,10 @@ export default function App() {
     <div 
     style={{ width: "100%", height: "80vh" }}
     >
+      <ResponsiveContainer>
+
       <BarChart className='items-center'
-          width={1200}
-          height={400}
+         
             data={getReads}
             margin={{
               top: 20,
@@ -47,6 +48,10 @@ export default function App() {
               ))}
             </Bar>
           </BarChart>
+
+
+      </ResponsiveContainer>
+          
     </div>
     
   );
