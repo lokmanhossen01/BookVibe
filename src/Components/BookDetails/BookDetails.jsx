@@ -16,18 +16,43 @@ const BookDetails = () => {
     // console.log(book);
 
     const handleReadBtn = () => {
-        // console.log('Hello')
         saveBookDetails(bookIdInt);
-        toast('You have applied successfully')
+        toast.success('Book added to Read.');
     }
+    
     const handleWishlistBtn = () => {
-        // console.log('Hello')
         wishBookDetails(bookIdInt);
-        toast('You have applied successfully')
+        toast.success('Book added to wishList.');
     }
+
+    // const handleReadBtn = (bookId) => {
+    //     if (wishlistBooks.includes(bookId)) {
+    //         toast.error('This book is already in the Wishlist. You cannot add it to Read.');
+    //     } else if (readBooks.includes(bookId)) {
+    //         toast.warning('This book is already added to Read.');
+    //     } else {
+    //         setReadBooks([...readBooks, bookId]);
+    //         toast.success('Book added to Read.');
+    //     }
+    // };
+
+    // const handleWishlistBtn = (bookId) => {
+    //     if (readBooks.includes(bookId)) {
+    //         toast.error('This book is already in Read. You cannot add it to Wishlist.');
+    //     } else if (wishlistBooks.includes(bookId)) {
+    //         toast.warning('This book is already added to Wishlist.');
+    //     } else {
+    //         setWishlistBooks([...wishlistBooks, bookId]);
+    //         toast.success('Book added to Wishlist.');
+    //     }
+    // };
+
 
 
     return(
+
+        
+
         <div>
             <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
@@ -59,10 +84,10 @@ const BookDetails = () => {
                 </div>
 
                 <div>
-                    <button onClick={handleReadBtn} className="btn btn-primary mr-4">
+                    <button  onClick={() => handleReadBtn()} className="btn btn-primary mr-4">
                         Read
                     </button>
-                    <button onClick={handleWishlistBtn} className="btn btn-primary">Wishlist</button>
+                    <button onClick={() => handleWishlistBtn()} className="btn btn-primary">Wishlist</button>
                 </div>
                 </div>
                 <ToastContainer />

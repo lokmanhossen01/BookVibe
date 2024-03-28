@@ -45,7 +45,7 @@ const ListedBooks = () => {
             </div>
 
             {/* dropdown list */}
-            <div className="text-center mb-20">
+            <div className="text-center mb-24 mt-8">
                 <div className="dropdown dropdown-hover">
                     <div tabIndex={0} role="button" className="btn m-1 inline-flex  px-24 py-8  justify-center items-center space-x-16 rounded-8 bg-green-500 text-center font-work font-semibold text-white text-18">Sort By <MdOutlineArrowDropDown /></div> 
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow  rounded-box w-52  
