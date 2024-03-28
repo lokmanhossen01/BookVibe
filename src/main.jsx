@@ -45,7 +45,8 @@ const router = createBrowserRouter([
       }, 
       {
         path: '/pagestoread',
-        element: <PagesToRead></PagesToRead>
+        element: <PagesToRead></PagesToRead>,
+        
       }, 
       {
         path: '/testimonial',

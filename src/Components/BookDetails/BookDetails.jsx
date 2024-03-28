@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { saveBookDetails } from "../Utility/localstorage";
+import { wishBookDetails } from "../Utility/localstorage2";
 
 const BookDetails = () => {
 
@@ -21,7 +22,7 @@ const BookDetails = () => {
     }
     const handleWishlistBtn = () => {
         // console.log('Hello')
-        saveBookDetails(bookIdInt);
+        wishBookDetails(bookIdInt);
         toast('You have applied successfully')
     }
 
