@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { saveBookDetails } from "../Utility/localstorage";
 import { wishBookDetails } from "../Utility/localstorage2";
+import { useState } from "react";
 
 const BookDetails = () => {
 
@@ -15,37 +16,43 @@ const BookDetails = () => {
     // console.log(books, bookId);
     // console.log(book);
 
-    const handleReadBtn = () => {
-        saveBookDetails(bookIdInt);
-        toast.success('Book added to Read.');
-    }
+    // const handleReadBtn = () => {
+    //     saveBookDetails(bookIdInt);
+    //     toast.success('Book added to Read.');
+    // }
     
-    const handleWishlistBtn = () => {
-        wishBookDetails(bookIdInt);
-        toast.success('Book added to wishList.');
-    }
+    // const handleWishlistBtn = () => {
+    //     wishBookDetails(bookIdInt);
+    //     toast.success('Book added to wishList.');
+    // }
 
-    // const handleReadBtn = (bookId) => {
-    //     if (wishlistBooks.includes(bookId)) {
-    //         toast.error('This book is already in the Wishlist. You cannot add it to Read.');
-    //     } else if (readBooks.includes(bookId)) {
-    //         toast.warning('This book is already added to Read.');
-    //     } else {
-    //         setReadBooks([...readBooks, bookId]);
-    //         toast.success('Book added to Read.');
-    //     }
-    // };
+    const [booksListed, setBooksListed] = useState([]);
 
-    // const handleWishlistBtn = (bookId) => {
-    //     if (readBooks.includes(bookId)) {
-    //         toast.error('This book is already in Read. You cannot add it to Wishlist.');
-    //     } else if (wishlistBooks.includes(bookId)) {
-    //         toast.warning('This book is already added to Wishlist.');
-    //     } else {
-    //         setWishlistBooks([...wishlistBooks, bookId]);
-    //         toast.success('Book added to Wishlist.');
-    //     }
-    // };
+    const [wishBooksListed, setWishBooksListed] = useState([]);
+
+    const handleReadBtn2 = (bookId) => {
+        if (wishBooksListed.includes(bookId)) {
+            toast.error('This book is already in the Wishlist. You cannot add it to Read.');
+        } else if (booksListed.includes(bookId)) {
+            toast.warning('This book is already added to Read.');
+        } else {
+            setBooksListed([...booksListed, bookId]);
+            saveBookDetails(bookIdInt);
+            toast.success('Book added to Read.');
+        }
+    };
+
+    const handleWishlistBtn2 = (bookId) => {
+        if (booksListed.includes(bookId)) {
+            toast.error('This book is already in Read. You cannot add it to Wishlist.');
+        } else if (wishBooksListed.includes(bookId)) {
+            toast.warning('This book is already added to Wishlist.');
+        } else {
+            setWishBooksListed([...wishBooksListed, bookId]);
+            wishBookDetails(bookIdInt);
+            toast.success('Book added to Wishlist.');
+        }
+    };
 
 
 
@@ -84,10 +91,10 @@ const BookDetails = () => {
                 </div>
 
                 <div>
-                    <button  onClick={() => handleReadBtn()} className="btn btn-primary mr-4">
+                    <button  onClick={() => handleReadBtn2()} className="btn btn-primary mr-4">
                         Read
                     </button>
-                    <button onClick={() => handleWishlistBtn()} className="btn btn-primary">Wishlist</button>
+                    <button onClick={() => handleWishlistBtn2()} className="btn btn-primary">Wishlist</button>
                 </div>
                 </div>
                 <ToastContainer />
