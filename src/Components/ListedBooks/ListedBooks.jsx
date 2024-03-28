@@ -14,6 +14,8 @@ const ListedBooks = () => {
 
     const [wishBooksListed, setWishBooksListed] = useState([]);
     
+   
+    
 
     useEffect(() => {
         const storedBookIds = getStoredRead();
@@ -24,7 +26,7 @@ const ListedBooks = () => {
 
             setBooksListed(listedBooks);
         }
-    } , [])
+    } , [books])
     
     useEffect(() => {
         const wishStoredBookIds = storedGetRead();
@@ -36,6 +38,39 @@ const ListedBooks = () => {
             setWishBooksListed(booksListed);
         }
     } , [])
+
+
+    const [readBook, setReadBook] = useState([]);
+    const [showData, setShowData] = useState([]);
+
+
+    useEffect(() => {
+        const storedReadBooks = storedGetRead();
+        setReadBook(storedReadBooks)
+        setShowData(storedReadBooks)
+    }, [])
+
+    const handleFilter = (filter) => {
+        if(filter === 'rating') {
+            const shortByRating = readBook.reverse((a, b) => b.rating - a.rating)
+            setShowData([...shortByRating])
+            console.log(showData)
+           
+        }
+        else if(filter === 'page-number') {
+            const shortByPageNumber = readBook.reverse((a, b) => b.totalPages - a.totalPages)
+            setShowData([...shortByPageNumber])
+            console.log(showData)
+           
+        }
+        else if (filter === 'publisher') {
+            const shortByPublisher = readBook.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
+            setShowData([...shortByPublisher])
+
+            console.log(showData)
+        
+        }
+    }
 
     return(
         <div>
@@ -50,9 +85,9 @@ const ListedBooks = () => {
                     <div tabIndex={0} role="button" className="btn m-1 inline-flex  px-24 py-8  justify-center items-center space-x-16 rounded-8 bg-green-500 text-center font-work font-semibold text-white text-18">Sort By <MdOutlineArrowDropDown /></div> 
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow  rounded-box w-52  
                     text-center font-work font-normal text-opacity-80 text-sm leading-28 rounded-8 bg-opacity-5 bg-black">
-                        <li><Link>Rating</Link></li>
-                        <li><Link>Number of pages</Link></li>
-                        <li><Link>Publisher year</Link></li>
+                        <li onClick={() => handleFilter('rating')}><Link>Rating</Link></li>
+                        <li onClick={() => handleFilter('page-number')}><Link>Number of pages</Link></li>
+                        <li onClick={() => handleFilter('publisher')}><Link>Publisher year</Link></li>
                     </ul>
                 </div>
             </div>

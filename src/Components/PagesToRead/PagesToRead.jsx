@@ -1,20 +1,20 @@
 
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
 
-import React, { useEffect, useState } from 'react';
-import { saveBookDetails } from '../Utility/localstorage';
+// import React, { useEffect, useState } from 'react';
+// import { getStoredRead } from '../Utility/localstorage';
+import { useLoaderData } from 'react-router-dom';
 
 const PagesToRead = () => {
 
+const getReads = useLoaderData();
+// const [putStoredRead, setPutStoredRead] = useState([]);
 
-
-const [getStoredRead, setGetStoredRead] = useState([]);
-
-useEffect(() => {
-  const getReads = saveBookDetails();
-  setGetStoredRead(getReads);
-  console.log(getReads);
-}, []);
+// useEffect(() => {
+//   const getReads = getStoredRead();
+//   setPutStoredRead(getReads);
+//   // console.log(getReads);
+// }, []);
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -25,8 +25,8 @@ const getPath = (x, y, width, height) => {
   Z`;
 };
 
-const TriangleBar = (props) => {
-  const { fill, x, y, width, height } = props;
+const TriangleBar = (getReads) => {
+  const { fill, x, y, width, height } = getReads;
 
   return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
 };
@@ -36,7 +36,7 @@ const TriangleBar = (props) => {
         <BarChart
             width={900}
             height={400}
-              data={getStoredRead}
+              data={getReads}
               margin={{
                 top: 20,
                 right: 30,
@@ -48,8 +48,8 @@ const TriangleBar = (props) => {
               <XAxis dataKey="bookName" />
               <YAxis dataKey={'totalPages'} />
               <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                {getStoredRead && getStoredRead.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                {getReads.map((entry, bookId) => (
+                  <Cell key={`cell-${bookId}`} fill={colors[bookId % 20]} />
                 ))}
               </Bar>
             </BarChart>
